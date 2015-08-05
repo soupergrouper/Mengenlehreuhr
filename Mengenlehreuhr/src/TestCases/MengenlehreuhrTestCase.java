@@ -1,16 +1,10 @@
 package TestCases;
 
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Date;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import Parsers.MengenlehreuhrToRegularParser;
-import Printers.MengenlehrehrTextPrinter;
-import Printers.Printer;
 import DateFormats.Mengenlehreuhr;
 import DateFormats.RegularTime;
 import DateFormats.Time;
