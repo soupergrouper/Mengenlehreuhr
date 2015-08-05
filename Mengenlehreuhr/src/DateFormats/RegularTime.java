@@ -5,9 +5,9 @@ import java.util.Date;
 
 public class RegularTime implements Time {
 
-	private int seconds;
-	private int minutes;
-	private int hours;
+	protected int seconds;
+	protected int minutes;
+	protected int hours;
 	
 	public RegularTime ()  {
 		Calendar calendar = Calendar.getInstance();
