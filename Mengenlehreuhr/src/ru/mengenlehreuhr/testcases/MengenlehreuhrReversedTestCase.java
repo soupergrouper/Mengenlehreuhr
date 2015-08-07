@@ -1,18 +1,19 @@
-package TestCases;
+package ru.mengenlehreuhr.testcases;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import Parsers.MengenlehreuhrToRegularParser;
-import DateFormats.Mengenlehreuhr;
-import DateFormats.RegularTime;
-import DateFormats.Time;
+import ru.mengenlehreuhr.dateformats.BerlinClock;
+import ru.mengenlehreuhr.dateformats.MengenlehreuhrReversed;
+import ru.mengenlehreuhr.dateformats.RegularTime;
+import ru.mengenlehreuhr.dateformats.Time;
+import ru.mengenlehreuhr.parsers.MengenlehreuhrToRegularParser;
 
 
-public class MengenlehreuhrTestCase {
+public class MengenlehreuhrReversedTestCase {
 	private Time t1, t2, t3, t4;
-	private Mengenlehreuhr m1, m2, m3, m4;
+	private BerlinClock m1, m2, m3, m4;
 	
 @Before
 public void setupData()  {
@@ -21,10 +22,10 @@ public void setupData()  {
 	t3 = new RegularTime(6, 5, 3);  // 03:05:06
 	t4 = new RegularTime(59, 59, 23);  // 23:59:59
 	
-	m1 = MengenlehreuhrToRegularParser.parse(t1);
-	m2 = MengenlehreuhrToRegularParser.parse(t2);
-	m3 = MengenlehreuhrToRegularParser.parse(t3);
-	m4 = MengenlehreuhrToRegularParser.parse(t4);
+	m1 = MengenlehreuhrToRegularParser.parse(t1, new MengenlehreuhrReversed());
+	m2 = MengenlehreuhrToRegularParser.parse(t2, new MengenlehreuhrReversed());
+	m3 = MengenlehreuhrToRegularParser.parse(t3, new MengenlehreuhrReversed());
+	m4 = MengenlehreuhrToRegularParser.parse(t4, new MengenlehreuhrReversed());
 }
 
 @Test
@@ -39,7 +40,7 @@ public void topHoursLengthTest()  {
 @Test
 public void topHoursValueTest()  {
 	Assert.assertEquals ("DDDD", m1.getTopHoursBulbs());
-	Assert.assertEquals ("YYYD", m2.getTopHoursBulbs());
+	Assert.assertEquals ("DYYY", m2.getTopHoursBulbs());
 	Assert.assertEquals ("DDDD", m3.getTopHoursBulbs());
 	Assert.assertEquals ("YYYY", m4.getTopHoursBulbs());
 }
@@ -55,9 +56,9 @@ public void bottomHoursLengthTest()  {
 @Test
 public void bottomHoursValueTest()  {
 	Assert.assertEquals ("DDDD", m1.getBottomHoursBulbs());
-	Assert.assertEquals ("YDDD", m2.getBottomHoursBulbs());
-	Assert.assertEquals ("YYYD", m3.getBottomHoursBulbs());
-	Assert.assertEquals ("YYYD", m4.getBottomHoursBulbs());
+	Assert.assertEquals ("DDDY", m2.getBottomHoursBulbs());
+	Assert.assertEquals ("DYYY", m3.getBottomHoursBulbs());
+	Assert.assertEquals ("DYYY", m4.getBottomHoursBulbs());
 }
 
 @Test
@@ -71,8 +72,8 @@ public void topMinutesLengthTest()  {
 @Test
 public void topMinutesValueTest()  {
 	Assert.assertEquals ("DDDDDDDDDDD", m1.getTopMinutesBulbs());
-	Assert.assertEquals ("YYRYDDDDDDD", m2.getTopMinutesBulbs());
-	Assert.assertEquals ("YDDDDDDDDDD", m3.getTopMinutesBulbs());
+	Assert.assertEquals ("DDDDDDDYRYY", m2.getTopMinutesBulbs());
+	Assert.assertEquals ("DDDDDDDDDDY", m3.getTopMinutesBulbs());
 	Assert.assertEquals ("YYRYYRYYRYY", m4.getTopMinutesBulbs());
 }
 
@@ -87,7 +88,7 @@ public void bottomMinutesLengthTest()  {
 @Test
 public void bottomMinutesValueTest()  {
 	Assert.assertEquals ("DDDD", m1.getBottomMinutesBulbs());
-	Assert.assertEquals ("YYYD", m2.getBottomMinutesBulbs());
+	Assert.assertEquals ("DYYY", m2.getBottomMinutesBulbs());
 	Assert.assertEquals ("DDDD", m3.getBottomMinutesBulbs());
 	Assert.assertEquals ("YYYY", m4.getBottomMinutesBulbs());
 }

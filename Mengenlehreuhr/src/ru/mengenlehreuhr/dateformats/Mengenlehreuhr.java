@@ -1,6 +1,6 @@
-package DateFormats;
+package ru.mengenlehreuhr.dateformats;
 
-public class Mengenlehreuhr {
+public class Mengenlehreuhr implements BerlinClock {
 
 	public final static int SHORT_ROW_BULBS_COUNT = 4;
 	public final static int LONG_ROW_BULBS_COUNT = 11;

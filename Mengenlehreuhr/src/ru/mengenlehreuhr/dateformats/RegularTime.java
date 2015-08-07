@@ -1,4 +1,4 @@
-package DateFormats;
+package ru.mengenlehreuhr.dateformats;
 
 import java.util.Calendar;
 import java.util.Date;

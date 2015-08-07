@@ -1,4 +1,4 @@
-package DateFormats;
+package ru.mengenlehreuhr.dateformats;
 
 public interface Time {
 

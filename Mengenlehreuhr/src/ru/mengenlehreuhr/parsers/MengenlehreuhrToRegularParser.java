@@ -1,14 +1,15 @@
-package Parsers;
+package ru.mengenlehreuhr.parsers;
 
 import java.util.Calendar;
 
-import DateFormats.Mengenlehreuhr;
-import DateFormats.Time;
+import ru.mengenlehreuhr.dateformats.BerlinClock;
+import ru.mengenlehreuhr.dateformats.Time;
+import ru.mengenlehreuhr.dateformats.Mengenlehreuhr;
 
 public class MengenlehreuhrToRegularParser {
-	public static Mengenlehreuhr parse(Time time) {
+	public static BerlinClock parse(Time time, BerlinClock bc) {
 
-		Mengenlehreuhr m = new Mengenlehreuhr();
+		BerlinClock m = bc;
 
 //		m.setTopHoursBulbs(time.get(Calendar.HOUR_OF_DAY) / 5);
 //		m.setBottomHoursBulbs(time.get(Calendar.HOUR_OF_DAY) % 5);
